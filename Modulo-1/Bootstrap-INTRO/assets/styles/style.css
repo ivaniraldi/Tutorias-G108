@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg-purple{
+    background-color: #d4e8ff;
+}
+
+.nav-link{
+    text-align: right;
+}
+.navbar-nav{
+    width: 100%;
+    justify-content: right;
+}
+
+.bg-gray{
+    background-color: rgb(211, 211, 211);
+}
+
+.bg-verde{
+    background-color: #28a745;
+}

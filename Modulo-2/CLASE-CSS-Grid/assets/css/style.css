@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.grid-textos{
+    border: 2px solid red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    
+}
+
+.grid-t-item{
+    border: 2px solid blue;
+}
+
+.grid-imgs{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+
+}
+
+.grid-i-img{
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}

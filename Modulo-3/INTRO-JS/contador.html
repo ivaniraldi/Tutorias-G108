@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio contador</title>
+  </head>
+  <body>
+    <h1 id="numero">0</h1>
+    <button
+      onclick="
+        let h1 = document.querySelector('#numero');
+        let cuenta = Number(h1.innerHTML);
+        let suma = cuenta + 1;
+        h1.innerHTML = suma;
+      "
+    >
+      +
+    </button>
+    <button
+      onclick="
+        let h1 = document.querySelector('#numero');
+        let cuenta2 = Number(h1.innerHTML);
+        let resta = cuenta2 - 1;
+        h1.innerHTML = resta;
+      "
+    >
+      -
+    </button>
+    <br />
+    <button
+      onclick="
+        let body = document.querySelector('body');
+        body.style.backgroundColor = '#1b1b1b';
+        body.style.color = 'white';
+      "
+    >
+      Cambiar a modo oscuro
+    </button>
+    <button
+      onclick="
+        let body = document.querySelector('body');
+        body.style.backgroundColor = 'white';
+        body.style.color = 'black';
+      "
+    >
+      Cambiar a modo claro
+    </button>
+  </body>
+</html>

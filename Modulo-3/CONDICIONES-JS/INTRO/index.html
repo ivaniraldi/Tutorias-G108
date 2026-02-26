@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <select name="" id="ciudades">
+      <option value="Buenos Aires">Buenos Aires</option>
+      <option value="Santiago">Santiago</option>
+      <option value="Lima">Lima</option>
+    </select>
+
+    <button
+      onclick="
+        let ciudades = document.querySelector('#ciudades').value;
+        console.log(ciudades);
+      "
+    >
+      ver ciudad
+    </button>
+
+    <select name="nums" id="nums">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <select name="nums" id="nums2">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+
+    <button
+      onclick="
+        let num1 = document.querySelector('#nums').value;
+        let num2 = document.querySelector('#nums2').value;
+
+        alert('Haz seleccionado el codigo ' + num1 + num2);
+      "
+    >
+      ver
+    </button>
+
+    <script>
+      //let edad = prompt("ingresa tu edad")
+      //if(edad < 18){
+      //    alert("No puedes ingresar a la web")
+      //} else {
+      //    alert("Bienvenido a la web")
+      //}
+
+      let pantalla = 500;
+      if (pantalla < 576) {
+        console.log("vista xs");
+      } else if (pantalla < 768) {
+        console.log("vista sm");
+      } else if (pantalla < 962) {
+        console.log("vista md");
+      } else {
+        console.log("vista xl");
+      }
+    </script>
+  </body>
+</html>

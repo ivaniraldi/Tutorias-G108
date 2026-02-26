@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+
+    <button
+    onclick='
+        let num1 = document.querySelector("#num1").value
+
+        let num2 = document.querySelector("#num2").value
+
+        
+
+        let suma = Number(num1) + Number(num2)
+        
+        let resultado = document.querySelector("#resultado")
+
+        resultado.textContent = suma
+
+    '> sumar </button>
+
+    <p id="resultado"></p>
+
+    <script>
+
+
+
+        //let num1 = prompt("Ingresa el primer numero")
+        //let num2 = prompt("Ingresa el segundo numero")
+
+        //let suma = Number(num1) + Number(num2)
+
+        //if(suma > 10 ) {
+        //    alert("Numero muy grande")
+        //}else{
+        //    alert("Numero pequeño")
+        //}
+    </script>
+</body>
+</html>

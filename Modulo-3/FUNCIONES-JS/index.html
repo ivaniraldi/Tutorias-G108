@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones en JavaScript</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-dark text-white">
+    <h1 class="p-1 pb-2 h3 ps-4 border-bottom border-3">
+      Funciones en JavaScript - Tutoría
+    </h1>
+    <div class="container">
+      <section class="border p-3 rounded">
+        <p class="p-3" id="name">No iniciaste sesión.</p>
+        <button
+          class="btn ms-2 btn-secondary"
+          onclick="
+            const nameP = document.querySelector('#name');
+            let name = prompt('Escribe tu nombre');
+            nameP.textContent = name;
+          "
+        >
+          Iniciar Sesión
+        </button>
+      </section>
+
+      <section class="border p-3 rounded mt-2">
+        <p class="p-3 fw-bold" id="text">Texto colorido.</p>
+        <div class="align-items-center">
+          <input
+            class="ms-2 mb-3 rounded border"
+            type="color"
+            name="color"
+            id="color"
+          />
+          <br />
+          <button
+            class="btn ms-2 btn-secondary"
+            onclick="
+              const color = document.getElementById('color').value;
+              const text = document.getElementById('text');
+              text.style.color = color;
+            "
+          >
+            Cambiar color
+          </button>
+        </div>
+      </section>
+      <section
+        class="border p-3 rounded mt-2"
+        style="height: 200px; position: relative; overflow: hidden"
+      >
+        <img
+          src="./assets/imgs/mario.png"
+          id="mario"
+          style="position: absolute; left: 0px; width: 80px; top: 50px;"
+        />
+
+        
+        <script>
+            const mario = document.getElementById("mario");
+            let position = 0;
+            
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "ArrowRight") {
+                    position += 20;
+                }
+                
+                if (event.key === "ArrowLeft") {
+                    position -= 20;
+                }
+                
+                mario.style.left = position + "px";
+            });
+            </script>
+            <p class="ps-3">Pulsa izquierda o derecha para mover a Mario.</p>
+      </section>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

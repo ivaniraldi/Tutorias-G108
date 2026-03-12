@@ -69,17 +69,19 @@ boton.addEventListener('click', prueba)
 // con la tecla "a" vamos a cambiar el color de Texto a rojo
 // con la tecla "b" vamos a subrayar el texto 
 // con la tecla "f" vamos a borrar el texto
-document.addEventListener('keydown', (event)=>{
+document.addEventListener('keydown', function(pepe) {
+    console.log(pepe)
+
     const texto = document.getElementById('texto')
-    if(event.key == 'a'){
+    if(pepe.key == 'a'){
         //cambio a rojo
         texto.style.color = 'red'
     }
-    if(event.key =='b'){
+    if(pepe.key =='b'){
         //subrayo
         texto.style.textDecoration = 'underline'
     }
-    if(event.key == 'f'){
+    if(pepe.key == 'f'){
         //borro
         texto.textContent = ''
     }

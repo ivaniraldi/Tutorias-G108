@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="monto" />
+    <select name="" id="monedas">
+      <option value="dolar">Dolar</option>
+      <option value="euro">Euro</option>
+      <option value="bitcoin">Bitcoin</option>
+      <option value="uf">UF</option>
+    </select>
+    <button id="convertButton">Convertir</button>
+    <p>El resultado es:</p>
+    <p id="resultado"></p>
+    <script>
+      const input = document.getElementById("monto");
+      const button = document.getElementById("convertButton");
+      const resultado = document.getElementById("resultado");
+      const select = document.getElementById("monedas");
+      
+      const getMonedas = async () => {
+        try {
+          // IF SELECT.value == "dolar" -> conversion = monto/valorDolar
+          // IF SELECT.value == "euro" -> conversion = monto/valorEuro
+          const res = await fetch("https://mindicador.cl/api/");
+          const data = await res.json();
+          console.log(data);
+          let monedas = {
+            dolar: data.dolar.valor,
+            euro: data.euro.valor,
+            bitcoin: data.bitcoin.valor,
+            uf: data.uf.valor
+          }
+          return monedas;
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      button.addEventListener("click", async () => {
+        const monedas = await getMonedas();
+        const monedaSeleccionada = select.value;
+        const monto = input.value;
+        console.log(monedaSeleccionada);
+        console.log(monedas);
+        if (monedaSeleccionada === "dolar") {
+          resultado.textContent = (monto / monedas.dolar).toFixed(2) + " USD";
+        } else if (monedaSeleccionada === "euro") {
+          resultado.textContent = (monto / monedas.euro).toFixed(2) + " EUR";
+        } else if (monedaSeleccionada === "bitcoin") {
+          resultado.textContent = (monto / monedas.bitcoin).toFixed(6) + " BTC";
+        } else if (monedaSeleccionada === "uf") {
+          resultado.textContent = (monto / monedas.uf).toFixed(2) + " UF";
+        }
+
+
+
+       
+
+      });
+    </script>
+  </body>
+</html>

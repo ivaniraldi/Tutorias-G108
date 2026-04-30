@@ -46,6 +46,20 @@ export default function ProductCard(props) {
         >
           {props.description}
         </Card.Text>
+        
+        
+        <Card.Text
+          style={{
+            flexGrow: 1,
+            color: "#555",
+          }}
+        >
+          {props.categories.map((categoria, indice) => (
+            <span key={indice} className="badge bg-secondary me-1">
+              {categoria}
+            </span>
+          ))}
+        </Card.Text>
 
         <Button
           variant="secondary"

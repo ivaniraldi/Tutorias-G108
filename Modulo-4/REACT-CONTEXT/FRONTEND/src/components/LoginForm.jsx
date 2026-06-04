@@ -2,41 +2,48 @@ import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { GlobalContext } from "../contexts/GlobalContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
   const { user, setUser } = useContext(GlobalContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(
-      "Ejecutando la logica del login con las credenciales: ",
-      email,
-      password,
-    );
-    let loggedUser = {
-      id: 1,
-      nombre: "Ivan",
-      email,
-      password,
-      token: "#####",
-    };
+    console.log(email, password);
 
-    if (!email || !password) {
-      alert("Debes ingresar tus datos");
+    if (!email || !password || password.length < 6) {
+      alert(
+        "Debes completar los campos y tu contraseña debe tener más de 6 caracteres",
+      );
       return;
     } else {
-      setUser(loggedUser);
-      navigate("/")
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      let data = await res.json();
+
+      console.log(data);
+
+      if (data.error) {
+        alert(data.error);
+        return;
+      } else {
+        alert("Sesión iniciada correctamente, bienvenido de nuevo!");
+        let userLogged = { email: data.email, token: data.token };
+        setUser(userLogged);
+        localStorage.setItem("user", userLogged)
+      }
     }
   };
-
-
 
   return (
     <div className="container mt-2 d-flex justify-content-center">
@@ -76,9 +83,11 @@ export default function LoginForm() {
         </div>
         <p className="text-center mt-3">
           No tienes una cuenta?{" "}
-          <span className="text-primary text-decoration-underline">
-            Registrate.
-          </span>
+          <Link to={"/register"}>
+            <span className="text-primary text-decoration-underline">
+              Registrate.
+            </span>
+          </Link>
         </p>
       </Form>
     </div>

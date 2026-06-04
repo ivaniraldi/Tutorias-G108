@@ -23,9 +23,22 @@ const GlobalProvider = ({ children }) =>{
         }
     },[tema])
 
+    useEffect(()=>{
+        if(localStorage.getItem("user")){
+            setUser(localStorage.getItem("user"))
+        }else{
+            setUser(null)
+        }
+    },[])
+
+    const logout = ()=>{
+        setUser(null)
+        localStorage.removeItem("user")
+    }
+
 
     return(
-        <GlobalContext.Provider value={{user, setUser, tema, setTema }}>
+        <GlobalContext.Provider value={{user, setUser, tema, setTema, logout }}>
             {children}
         </GlobalContext.Provider>
     )

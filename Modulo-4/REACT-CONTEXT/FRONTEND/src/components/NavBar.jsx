@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function NavBar() {
-  const { user, setUser, tema, setTema  } = useContext(GlobalContext);
+  const { user, setUser, tema, setTema, logout  } = useContext(GlobalContext);
  
   
 
@@ -49,7 +49,7 @@ export default function NavBar() {
               </Nav.Link>
             )}
             {user && (
-              <Nav.Link onClick={()=> setUser(null)} as={Link} to="/login" className="px-3">
+              <Nav.Link onClick={()=> logout()} as={Link} to="/login" className="px-3">
                 Cerrar sesión
               </Nav.Link>
             )}

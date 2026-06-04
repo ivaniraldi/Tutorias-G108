@@ -3,5 +3,20 @@
     "email": "test@test.com",
     "password": "123123",
     "id": "UYz_2Vy9rNw7uELQ7AZ8D"
+  },
+  {
+    "email": "admin@superapp.com",
+    "password": "123123",
+    "id": "TAdnrRxllwHeXQ9UMvyeF"
+  },
+  {
+    "email": "admin@ivan.com",
+    "password": "123123",
+    "id": "qLktphSBE1hIv1tXUiKiX"
+  },
+  {
+    "email": "ivan@admin.com",
+    "password": "123123",
+    "id": "d7qG8uOa-OzcdgWHBvYb9"
   }
 ]

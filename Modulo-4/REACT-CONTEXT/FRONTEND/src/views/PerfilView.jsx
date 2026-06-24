@@ -21,7 +21,7 @@ export default function PerfilView() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + user.token
+          "Authorization": `Bearer ${user.token}`
         }
       })
 

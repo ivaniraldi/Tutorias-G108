@@ -5,7 +5,7 @@ import { GlobalContext } from "../contexts/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
-  const { user, setUser } = useContext(GlobalContext);
+  const { user, setUser, } = useContext(GlobalContext);
 
   const navigate = useNavigate();
 

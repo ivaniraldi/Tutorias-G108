@@ -12,6 +12,10 @@ const GlobalProvider = ({ children }) =>{
     const [user, setUser] = useState(null)
 
     const [tema, setTema] = useState("light")
+    
+    const apiKey = import.meta.env.VITE_ENV_API_KEY_OPENAI
+
+    console.log(apiKey)
 
 
     useEffect(()=>{
